@@ -19,8 +19,6 @@
     "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Identity.Test": "1.0.0-*",
-    "Microsoft.AspNet.Testing": "1.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework6": "3.0.0-*"
   },
 
@@ -31,7 +29,8 @@
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "Microsoft.AspNet.Identity.Test": "1.0.0-*"
+        "Microsoft.AspNet.Identity.Test": "1.0.0-*",
+        "Microsoft.AspNet.Testing": "1.0.0-*"
       }
     }
   }

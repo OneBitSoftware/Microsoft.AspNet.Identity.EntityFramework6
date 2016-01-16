@@ -1,19 +1,18 @@
 ﻿namespace Microsoft.AspNet.Identity.EntityFramework6.Test
 {
-
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Xunit;
 
-    using Microsoft.AspNet.Identity.Test;
-    using Microsoft.AspNet.Testing.xunit;
     using System.Linq.Expressions;
     using Microsoft.Extensions.DependencyInjection;
+
     using Utilities;
+    using Testing.xunit;
+    using Identity.Test;
     public class EntityFramework6UserStoreTest :
-        UserManagerTestBase<IdentityUser, IdentityRole>//, IClassFixture<ScratchDatabaseFixture>
+        UserManagerTestBase<IdentityUser, IdentityRole> //, IClassFixture<ScratchDatabaseFixture>
     {
 
 

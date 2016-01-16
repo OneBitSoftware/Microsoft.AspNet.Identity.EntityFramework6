@@ -38,35 +38,17 @@ namespace IdentitySamples.MVC6.EF6
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            //services.AddEntityFramework()
-            //    .AddSqlServer()
-            //    .AddDbContext<ApplicationDbContext>(options =>
-            //        options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
-
-            //services.AddIdentity<ApplicationUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>()
-            //    .AddDefaultTokenProviders();
-
-
-            //services.AddScoped(context => new ApplicationDbContext(Configuration["Data:DefaultConnection:ConnectionString"]));
-
-    //        services.AddScoped<IdentityDbContext>(context =>
-    //new ApplicationDbContext(Configuration["Data:DefaultConnection:ConnectionString"]));
-
+            //Inject ApplicationDbContext in place of IdentityDbContext and use connection string
             services.AddScoped<IdentityDbContext<ApplicationUser>>(context =>
                 new ApplicationDbContext(Configuration["Data:DefaultConnection:ConnectionString"]));
 
+            //Configure Identity middleware with ApplicationUser and the EF6 IdentityDbContext
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
                 config.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<IdentityDbContext<ApplicationUser>>()
             .AddDefaultTokenProviders();
-            //.AddUserStore<UserStore<ApplicationUser>>()
-            //.AddRoleStore<RoleStore<IdentityRole>>();
-            //.AddUserManager<Identity.UserManager<ApplicationUser>>()
-            //.AddRoleManager<Identity.RoleManager<IdentityRole>>();
 
             services.AddMvc();
 
