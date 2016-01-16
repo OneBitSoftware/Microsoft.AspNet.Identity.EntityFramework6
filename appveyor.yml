@@ -1,0 +1,6 @@
+init:
+  - git config --global core.autocrlf true
+before_build:
+  - nuget restore
+build:
+	verbosity: minimal
