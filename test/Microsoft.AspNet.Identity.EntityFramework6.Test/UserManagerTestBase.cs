@@ -789,12 +789,22 @@
                 return;
             }
             var manager = CreateUserManager();
+            var uniqueString = DateTime.Now.Ticks.ToString();
+
             var user = CreateTestUser();
-            var login = new UserLoginInfo("Provider", "key", "display");
+            var login = new UserLoginInfo("Provider", "key"+ uniqueString, "display");
             IdentityResultAssert.IsSuccess(await manager.CreateAsync(user));
             var result = await manager.AddLoginAsync(user, login);
-            IdentityResultAssert.IsFailure(result, _errorDescriber.LoginAlreadyAssociated());
-            IdentityResultAssert.VerifyLogMessage(manager.Logger, $"AddLogin for user {await manager.GetUserIdAsync(user)} failed because it was already assocated with another user.");
+
+            var secondUser = CreateTestUser();
+            var secondLogin = new UserLoginInfo("Provider", "key" + uniqueString, "display");
+            IdentityResultAssert.IsSuccess(await manager.CreateAsync(secondUser));
+            var secondResult = await manager.AddLoginAsync(secondUser, secondLogin);
+
+            IdentityResultAssert.IsFailure(secondResult, _errorDescriber.LoginAlreadyAssociated());
+            var message = $"AddLogin for user {await manager.GetUserIdAsync(secondUser)} failed because it was already assocated with another user.";
+
+            IdentityResultAssert.VerifyLogMessage(manager.Logger, message);
         }
 
         // Email tests

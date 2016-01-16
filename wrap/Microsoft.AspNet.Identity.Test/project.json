@@ -4,6 +4,9 @@
     "dnx451": {
       "bin": {
         "assembly": "../../lib/dnx451/Microsoft.AspNet.Identity.Test.dll"
+      },
+      "dependencies": {
+        "Microsoft.AspNet.Testing": "1.0.0-*"
       }
     }
   }
