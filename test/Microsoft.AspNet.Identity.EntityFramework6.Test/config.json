@@ -1,0 +1,7 @@
+﻿{
+	"Test": {
+    "SqlServer": {
+      "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Trusted_Connection=True;Integrated Security=true;MultipleActiveResultSets=true;Connect Timeout=30;"
+    }
+	}
+}
