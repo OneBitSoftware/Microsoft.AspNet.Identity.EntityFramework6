@@ -26,3 +26,8 @@ services.AddIdentity<ApplicationUser, IdentityRole>(config =>
 You can use ApplicationUser and IdentityDbContext to modify the model further.
 This is currently not released as a Nuget package, although if there is interest we could do that on MyGet.
 
+## Support
+
+Please note that I've used the Microsoft.AspNet.* in the hope that Microsoft might want to include this in the Identity repository. 
+
+At this stage Microsoft do not support this library and it is not an official Microsoft library that is part of the official ASP.NET Identity 3 for which we get great support.
