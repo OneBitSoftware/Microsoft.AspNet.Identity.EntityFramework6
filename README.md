@@ -26,6 +26,12 @@ services.AddIdentity<ApplicationUser, IdentityRole>(config =>
 You can use ApplicationUser and IdentityDbContext to modify the model further.
 This is currently not released as a Nuget package, although if there is interest we could do that on MyGet.
 
+## Missing functionality
+
+EF7 and ASP.NET Identity 3 by design run on DNX Core. EF6 doesn't, so inheritantly this library will not run on true Core and I haven't put effort in this direction.
+
+The current build also excludes EF6 migrations capability - feel free to contribute this in.
+
 ## Support
 
 Please note that I've used the Microsoft.AspNet.* namespace in the hope that Microsoft might want to include this in the Identity repository. 
