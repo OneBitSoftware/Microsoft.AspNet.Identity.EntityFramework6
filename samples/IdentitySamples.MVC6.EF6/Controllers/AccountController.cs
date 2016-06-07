@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using IdentitySamples.MVC6.EF6.Models;
 using IdentitySamples.MVC6.EF6.Services;
 using IdentitySamples.MVC6.EF6.ViewModels.Account;
-using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace IdentitySamples.MVC6.EF6.Controllers
 {
