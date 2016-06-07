@@ -21,6 +21,3 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("7713a205-86ec-4282-ae8b-47376e3d23e1")]
-
-// Expose protected methods for testing
-[assembly: InternalsVisibleTo("Microsoft.AspNet.Identity.EntityFramework6.Test")]
