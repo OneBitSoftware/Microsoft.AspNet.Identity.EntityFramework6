@@ -21,7 +21,7 @@
         [ConditionalFact]
         public void CanCreateUserUsingEF()
         {
-            var manager = CreateManager();
+            var manager = CreateUserManager();
 
             using (var db = CreateContext())
             {
@@ -180,7 +180,7 @@
         [ConditionalFact]
         public async Task CanCreateUsingManager()
         {
-            var manager = CreateManager();
+            var manager = CreateUserManager();
             var guid = Guid.NewGuid().ToString();
             var user = new IdentityUser { UserName = "New" + guid, Email = Guid.NewGuid().ToString() };
             IdentityResultAssert.IsSuccess(await manager.CreateAsync(user));
@@ -190,7 +190,7 @@
         [ConditionalFact]
         public async Task TwoUsersSamePasswordDifferentHash()
         {
-            var manager = CreateManager();
+            var manager = CreateUserManager();
             var password = "password";
             var userA = new IdentityUser(Guid.NewGuid().ToString());
             var userB = new IdentityUser(Guid.NewGuid().ToString());
@@ -206,7 +206,7 @@
         [ConditionalFact]
         public async Task AddUserToUnknownRoleFails()
         {
-            var manager = CreateManager();
+            var manager = CreateUserManager();
             var u = CreateTestUser();
             IdentityResultAssert.IsSuccess(await manager.CreateAsync(u));
             await Assert.ThrowsAsync<InvalidOperationException>(
@@ -219,14 +219,14 @@
             var user = CreateTestUser();
             using (var db = CreateContext())
             {
-                var manager = CreateManager(db);
+                var manager = CreateUserManager(db);
                 IdentityResultAssert.IsSuccess(await manager.CreateAsync(user));
             }
             using (var db = CreateContext())
             using (var db2 = CreateContext())
             {
-                var manager1 = CreateManager(db);
-                var manager2 = CreateManager(db2);
+                var manager1 = CreateUserManager(db);
+                var manager2 = CreateUserManager(db2);
                 var user1 = await manager1.FindByIdAsync(user.Id);
                 var user2 = await manager2.FindByIdAsync(user.Id);
                 Assert.NotNull(user1);
@@ -245,14 +245,14 @@
             var user = CreateTestUser();
             using (var db = CreateContext())
             {
-                var manager = CreateManager(db);
+                var manager = CreateUserManager(db);
                 IdentityResultAssert.IsSuccess(await manager.CreateAsync(user));
             }
             using (var db = CreateContext())
             using (var db2 = CreateContext())
             {
-                var manager1 = CreateManager(db);
-                var manager2 = CreateManager(db2);
+                var manager1 = CreateUserManager(db);
+                var manager2 = CreateUserManager(db2);
                 var user2 = await manager2.FindByIdAsync(user.Id);
                 Assert.NotNull(user2);
                 Assert.NotSame(user, user2);
@@ -269,14 +269,14 @@
             var user = CreateTestUser();
             using (var db = CreateContext())
             {
-                var manager = CreateManager(db);
+                var manager = CreateUserManager(db);
                 IdentityResultAssert.IsSuccess(await manager.CreateAsync(user));
             }
             using (var db = CreateContext())
             using (var db2 = CreateContext())
             {
-                var manager1 = CreateManager(db);
-                var manager2 = CreateManager(db2);
+                var manager1 = CreateUserManager(db);
+                var manager2 = CreateUserManager(db2);
                 var user1 = await manager1.FindByIdAsync(user.Id);
                 var user2 = await manager2.FindByIdAsync(user.Id);
                 Assert.NotNull(user1);
