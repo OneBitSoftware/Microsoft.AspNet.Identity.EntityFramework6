@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.1-*",
   "description": "Unit tests for Microsoft.AspNet.Identity.EntityFramework6",
   "authors": [ "Radi Atanassov" ],
 
@@ -18,10 +18,10 @@
     "Microsoft.AspNetCore.Hosting": "1.0.0-*",
     "Microsoft.AspNetCore.Http": "1.0.0-*",
     "Microsoft.AspNetCore.Identity": "1.0.0-*",
-    "Microsoft.AspNetCore.Testing": "1.0.0-*",
+    "Microsoft.AspNetCore.Testing": "1.1.0-*",
     "Microsoft.Extensions.Configuration": "1.0.0-*",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0-*",
-    "Microsoft.AspNet.Identity.EntityFramework6": "3.0.0-*",
+    "Microsoft.AspNet.Identity.EntityFramework6": "3.0.1-*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final"
   },
 

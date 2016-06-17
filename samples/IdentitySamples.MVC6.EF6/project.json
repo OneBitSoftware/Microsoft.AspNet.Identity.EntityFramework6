@@ -20,7 +20,7 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-final",
 
-    "Microsoft.AspNet.Identity.EntityFramework6": "3.0.0-*"
+    "Microsoft.AspNet.Identity.EntityFramework6": "3.0.1-*"
   },
 
   "commands": {

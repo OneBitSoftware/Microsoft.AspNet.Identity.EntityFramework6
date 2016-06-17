@@ -1,5 +1,33 @@
+version: 3.0.1.{build}
+os: Visual Studio 2015
+configuration: Release
+
 init:
   - git config --global core.autocrlf true
+
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+
 before_build:
-  - nuget restore
+  - ps: .\scripts\show-dotnet-info.ps1
+  - ps: .\scripts\set-version.ps1
+  - cmd: dotnet --info
+  - cmd: dotnet restore
+
+build_script:
+  - cmd: dotnet build -c Release src/Microsoft.AspNet.Identity.EntityFramework6
+  - cmd: dotnet build -c Release test/Microsoft.AspNet.Identity.EntityFramework6.Test
+  - cmd: dotnet build -c Release samples/IdentitySamples.MVC6.EF6
+
+test_script:
+  - cmd: dotnet test -c Release test/Microsoft.AspNet.Identity.EntityFramework6.Test
+
+after_test:
+  - cmd: dotnet pack -c Release src/Microsoft.AspNet.Identity.EntityFramework6
+
+artifacts:
+  path: 'src\Microsoft.AspNet.Identity.EntityFramework6\bin\Release\*.nupkg'
 
