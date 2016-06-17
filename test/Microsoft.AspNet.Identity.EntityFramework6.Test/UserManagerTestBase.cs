@@ -1,10 +1,12 @@
 ﻿namespace Microsoft.AspNet.Identity.EntityFramework6.Test
 {
-    using Microsoft.AspNet.Http;
-    using Microsoft.AspNet.Http.Internal;
-    using Microsoft.AspNet.Identity.Test;
-    using Microsoft.AspNet.Testing;
-    using Microsoft.AspNet.Testing.xunit;
+    using AspNetCore.Builder;
+    using AspNetCore.Identity;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Http.Internal;
+    using Microsoft.AspNetCore.Identity.Test;
+    using Microsoft.AspNetCore.Testing;
+    using Microsoft.AspNetCore.Testing.xunit;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
     using System;
@@ -29,7 +31,7 @@
 
         public static void VerifyLogMessage(ILogger logger, string expectedLog)
         {
-            var testlogger = logger as Microsoft.AspNet.Identity.Test.ITestLogger;
+            var testlogger = logger as ITestLogger;
             if (testlogger != null)
             {
                 Assert.True(testlogger.LogMessages.Contains(expectedLog));
@@ -81,7 +83,7 @@
             {
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
-                options.Password.RequireNonLetterOrDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.User.AllowedUserNameCharacters = null;
             })
@@ -792,7 +794,7 @@
             var uniqueString = DateTime.Now.Ticks.ToString();
 
             var user = CreateTestUser();
-            var login = new UserLoginInfo("Provider", "key"+ uniqueString, "display");
+            var login = new UserLoginInfo("Provider", "key" + uniqueString, "display");
             IdentityResultAssert.IsSuccess(await manager.CreateAsync(user));
             var result = await manager.AddLoginAsync(user, login);
 
@@ -859,7 +861,7 @@
             Assert.False(await manager.IsEmailConfirmedAsync(user));
         }
 
-        private class StaticTokenProvider : IUserTokenProvider<TUser>
+        private class StaticTokenProvider : IUserTwoFactorTokenProvider<TUser>
         {
             public async Task<string> GenerateAsync(string purpose, UserManager<TUser> manager, TUser user)
             {

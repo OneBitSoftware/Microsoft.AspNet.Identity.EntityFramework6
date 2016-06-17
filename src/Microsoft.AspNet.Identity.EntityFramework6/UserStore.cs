@@ -11,7 +11,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
 
-    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNetCore.Identity;
 
     /// <summary>
     /// Creates a new instance of a persistence store for users, using the default implementation

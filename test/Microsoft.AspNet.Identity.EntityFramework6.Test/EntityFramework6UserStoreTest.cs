@@ -9,13 +9,15 @@
     using Microsoft.Extensions.DependencyInjection;
 
     using Utilities;
-    using Testing.xunit;
-    using Identity.Test;
+    //using Testing.xunit;
+    //using Identity.Test;
+    using AspNet.Identity.EntityFramework6;
+    using AspNetCore.Testing.xunit;
+    using Microsoft.AspNetCore.Identity.Test;
+    using AspNetCore.Identity;
     public class EntityFramework6UserStoreTest :
         UserManagerTestBase<IdentityUser, IdentityRole> //, IClassFixture<ScratchDatabaseFixture>
     {
-
-
         [ConditionalFact]
         public void CanCreateUserUsingEF()
         {
