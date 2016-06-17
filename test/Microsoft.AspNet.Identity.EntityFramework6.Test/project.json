@@ -21,7 +21,7 @@
     "Microsoft.AspNetCore.Testing": "1.1.0-*",
     "Microsoft.Extensions.Configuration": "1.0.0-*",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0-*",
-    "Microsoft.AspNet.Identity.EntityFramework6": "3.0.1-*",
+    "Microsoft.AspNet.Identity.EntityFramework6": "3.0.1.*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final"
   },
 
