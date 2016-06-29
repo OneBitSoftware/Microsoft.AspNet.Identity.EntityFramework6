@@ -1,6 +1,6 @@
 ﻿{
   "version": "3.0.1",
-  "description": "An ASP.NET Identity 3.0 provider for Entity Framework 6",
+  "description": "An ASP.NET Core Identity 3.0 provider for Entity Framework 6",
   "authors": [ "Radi Atanasov" ],
 
   "packOptions": {
