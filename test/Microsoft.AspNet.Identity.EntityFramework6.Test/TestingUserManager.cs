@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNet.Http;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.OptionsModel;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +22,9 @@ namespace Microsoft.AspNet.Identity.EntityFramework6.Test
             (IUserStore<TUser> store, IOptions<IdentityOptions> optionsAccessor,
             IPasswordHasher<TUser> passwordHasher, IEnumerable<IUserValidator<TUser>> userValidators,
             IEnumerable<IPasswordValidator<TUser>> passwordValidators, ILookupNormalizer keyNormalizer,
-            IdentityErrorDescriber errors, IServiceProvider services, ILogger<TestingUserManager<TUser>> logger,
-            IHttpContextAccessor contextAccessor)
+            IdentityErrorDescriber errors, IServiceProvider services, ILogger<TestingUserManager<TUser>> logger)
             : base(store, optionsAccessor, passwordHasher, userValidators,
-                  passwordValidators, keyNormalizer, errors, services, logger, contextAccessor)
+                  passwordValidators, keyNormalizer, errors, services, logger)
         {
             Store = store;
             Options = optionsAccessor?.Value ?? new IdentityOptions();
@@ -65,7 +66,5 @@ namespace Microsoft.AspNet.Identity.EntityFramework6.Test
                 return _passwordValidators;
             }
         }
-
-
     }
 }

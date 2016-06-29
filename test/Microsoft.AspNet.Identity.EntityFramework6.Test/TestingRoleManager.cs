@@ -1,8 +1,9 @@
 ﻿namespace Microsoft.AspNet.Identity.EntityFramework6.Test
 {
     using Microsoft.Extensions.Logging;
-    using Microsoft.AspNet.Http;
+    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
+    using AspNetCore.Identity;
 
     public class TestingRoleManager<TRole> : RoleManager<TRole>
             where TRole : class

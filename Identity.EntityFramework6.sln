@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Identity.EntityFramework6", "src\Microsoft.AspNet.Identity.EntityFramework6\Microsoft.AspNet.Identity.EntityFramework6.xproj", "{7713A205-86EC-4282-AE8B-47376E3D23E1}"
 EndProject
@@ -14,6 +14,15 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Identity.EntityFramework6.Test", "test\Microsoft.AspNet.Identity.EntityFramework6.Test\Microsoft.AspNet.Identity.EntityFramework6.Test.xproj", "{8BB3F79C-EA6D-4871-8C63-7D8EB7F58AB9}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IdentitySamples.MVC6.EF6", "samples\IdentitySamples.MVC6.EF6\IdentitySamples.MVC6.EF6.xproj", "{C5F3057D-EDC9-474C-BA80-D25A9A975607}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9BD284A6-9143-4698-A8D6-D0262EF06A4A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		global.json = global.json
+		NuGet.config = NuGet.config
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
